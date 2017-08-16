@@ -1,10 +1,10 @@
 import collections
 
-Card = collections.nametuple('Card', ['rank', 'suit'])
+Card = collections.namedtuple('Card', ['rank', 'suit'])
 
 class FrenchDeck:
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = 'spades diamonds clubs hearts'.aplit()
+    suits = 'spades diamonds clubs hearts'.split()
 
     def __init__(self):
         self._cards = [Card(rank, suit) for suit in self.suits
@@ -15,3 +15,8 @@ class FrenchDeck:
 
     def __getitem__(self, position):
         return self._cards[position]
+
+if __name__ == '__main__':
+    fc = FrenchDeck()
+    for i in fc:
+        print(i)
